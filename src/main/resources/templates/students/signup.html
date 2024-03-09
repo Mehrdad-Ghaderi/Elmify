@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="~{layouts :: header}">
+    <title>Student Sign Up</title>
+</head>
+<body>
+<nav th:replace="~{layouts :: navbar}"></nav>
+<div data-role="page">
+    <div data-role="header">
+        <h1>Sign Up as a Student:</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <form action="/students/save" method="POST" th:object="${student}">
+            <fieldset data-role="controlgroup">
+                <legend>Student Information:</legend>
+                <label for="firstName"></label>
+                First name: <input type="text" id="firstName" placeholder="first name" th:field="${student.firstName}">
+                <br>
+                <label for="lastName"></label>
+                Last name: <input type="text" id="lastName" placeholder="last name" th:field="${student.lastName}"> <br>
+                <br>
+                <label for="email"></label>
+                Email: <input type="text" id="email" placeholder="****@mail.com" th:field="${student.email}"> <br>
+                <br>
+                <label for="username"></label>
+                Username: <input type="text" id="username" placeholder="eg. jack-brown" th:field="${student.username}">
+                <br>
+                <br>
+                <label for="password"></label>
+                Password: <input type="password" id="password"
+                                 placeholder="combination of capital, and small letters, and symbols"
+                                 th:field="${student.password}"> <br>
+                <br>
+            </fieldset>
+
+
+            <button type="submit" class="btn btn-success">Create Account</button>
+            <button type="reset" data-inline="true" value="Reset" class="btn btn-warning"><br>
+                <button type="submit" class="btn btn-info">Already have an account?</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

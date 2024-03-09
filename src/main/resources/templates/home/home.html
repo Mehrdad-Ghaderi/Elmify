@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layouts :: header}">
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+
+<body>
+<nav th:replace="~{layouts :: navbar}"></nav>
+
+<div class="container">
+<h2>Home</h2>
+<form action="/login" method="post">
+    <!-- Include form fields for login -->
+    <button th:href="@{/home/sign-in}" type="submit">Login</button>
+</form>
+</div>
+</body>
+</html>

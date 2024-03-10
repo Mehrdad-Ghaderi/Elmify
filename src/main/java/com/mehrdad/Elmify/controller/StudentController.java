@@ -47,11 +47,11 @@ public class StudentController {
 
     @PostMapping("/create")
     public String createStudent(Student student, Model model) {
-        studentService.save(student);
-        /*var studentByID = studentService.getStudentByID(student.getId());
+        var studentByID = studentService.getStudentByID(student.getId());
         if (studentByID.isPresent()) {
             return "common/failed-submission";
-        }*/
-        return "redirect:/students/list";
+        }
+        studentService.save(student);
+        return "common/successful-submission";
     }
 }

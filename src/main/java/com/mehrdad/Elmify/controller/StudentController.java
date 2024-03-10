@@ -18,25 +18,9 @@ public class StudentController {
 
     @GetMapping("/list")
     public String showStudents(Model model) {
-        /*Student student = new Student();
-        student.setId("2");
-        student.setFirstName("sevil");
-        student.setLastName("Basser");
-        student.setEmail("sevil@gmail.com");
-        student.setPhoneNumber("09121111111");
-        student.setUsername("sevils");
-        student.setPassword("bassers");
-        studentService.save(student);*/
         var studentList = studentService.findAll();
-
         model.addAttribute("studentList", studentList);
         return "students/students-list";
-    }
-
-    @GetMapping("/sign-in")
-    public String showLogin(Model model) {
-
-        return "students/sign-in/sign-in";
     }
 
     @GetMapping("/new")
@@ -53,5 +37,27 @@ public class StudentController {
         }
         studentService.save(student);
         return "common/successful-submission";
+    }
+
+    @GetMapping("/login")
+    public String showLogin(Model model) {
+        model.addAttribute("student", new Student());
+        return "students/login";
+    }
+
+    @PostMapping("/authenticate")
+    public String authenticate(Student student, Model model) {
+        var studentByID = studentService.getStudentByID(student.getId());
+        if (studentByID.isPresent()) {
+            var foundStudent = studentByID.get();
+            if (foundStudent.getId().equals(student.getId())
+                    && foundStudent.getPassword().equals(student.getPassword())) {
+
+                return "students/successful-login";
+            } else {
+                return "students/failed-login";
+            }
+        }
+        return "students/not-found";
     }
 }

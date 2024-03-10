@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{layouts :: header}">
-    <meta charset="UTF-8">
     <title>Home</title>
 </head>
 
@@ -9,12 +8,12 @@
 <nav th:replace="~{layouts :: navbar}"></nav>
 
 <div class="container">
-<h2>Home</h2>
-<form> action="/login" method="post">
-    <!-- Include form fields for login -->
+<h2>Home page</h2>
+<!--<form action="/login" method="post">
+     Include form fields for login
     <a th:href="@{/students/new}" class="btn btn-primary btn-sm mb-3">Sign In</a>
     <button th:href="@{/templates/main/sign-in}" type="submit">Login</button>
-</form>
+</form> -->
 </div>
 </body>
 </html>

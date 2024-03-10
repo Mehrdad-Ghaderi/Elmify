@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="layouts :: header">
+  <meta charset="UTF-8">
+  <title>Not Found!</title>
+</head>
+
+<body>
+<nav th:replace="~{layouts :: navbar}"></nav>
+
+<div class="container">
+  <div class="popup" id="popup">
+    <h4>The ID you entered does not exist!</h4>
+    <h4>Would you like to try again?</h4>
+    <a th:href="@{/students/login}" class="btn btn-primary btn-sm mb-3">Yes</a>
+    <a th:href="@{/home}" class="btn btn-primary btn-sm mb-3">Back</a>
+  </div>
+</div>
+</body>
+</html>

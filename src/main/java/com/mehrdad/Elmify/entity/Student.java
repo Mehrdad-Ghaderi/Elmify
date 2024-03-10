@@ -7,10 +7,8 @@ import jakarta.validation.constraints.Size;
 
 @Entity
 public class Student {
-
     @Id
     @NotNull
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private String id;
     @NotNull

@@ -30,15 +30,6 @@ public class SecurityConfig {
         return (SecurityFilterChain)http.build();
     }
 
-
-    //it did not ask for password, nor could it persis. 403 forbidden request was prompted
-    /*@Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(authorizeRequests -> authorizeRequests.anyRequest()
-                .permitAll());
-        return http.build();
-    }*/
-
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails user =
@@ -50,6 +41,4 @@ public class SecurityConfig {
 
         return new InMemoryUserDetailsManager(user);
     }
-
-
 }

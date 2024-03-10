@@ -26,23 +26,23 @@ public class StudentController {
     @GetMapping("/new")
     public String displayStudentForm(Model model) {
         model.addAttribute("student", new Student());
-        return "students/new-student";
+        return "students/create/new";
     }
 
     @PostMapping("/create")
     public String createStudent(Student student, Model model) {
         var studentByID = studentService.getStudentByID(student.getId());
         if (studentByID.isPresent()) {
-            return "common/failed-submission";
+            return "students/create/failed";
         }
         studentService.save(student);
-        return "common/successful-submission";
+        return "students/create/successful";
     }
 
     @GetMapping("/login")
     public String showLogin(Model model) {
         model.addAttribute("student", new Student());
-        return "students/login";
+        return "students/login/login";
     }
 
     @PostMapping("/authenticate")
@@ -52,12 +52,11 @@ public class StudentController {
             var foundStudent = studentByID.get();
             if (foundStudent.getId().equals(student.getId())
                     && foundStudent.getPassword().equals(student.getPassword())) {
-
-                return "students/successful-login";
+                return "students/login/successful";
             } else {
-                return "students/failed-login";
+                return "students/login/failed";
             }
         }
-        return "students/not-found";
+        return "students/login/not-found";
     }
 }

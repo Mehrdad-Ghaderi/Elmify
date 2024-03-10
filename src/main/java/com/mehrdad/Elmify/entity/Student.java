@@ -1,21 +1,42 @@
 package com.mehrdad.Elmify.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Student {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private String id;
+    @NotNull
+    @Size(min=1, max=45)
+    @Column(name = "first_name")
     private String firstName;
+    @NotNull
+    @Size(min=1, max=45)
+    @Column(name = "last_name")
     private String lastName;
+    @NotNull
+    @Email
+    @Size(min=1, max=45)
+    @Column(name = "email")
     private String email;
+    @NotNull
+    @Size(min=1, max=45)
+    @Column(name = "phone_number")
     private String phoneNumber;
+    @NotNull
+    @Size(min=1, max=45)
+    @Column(name = "username")
     private String username;
+    @NotNull
+    @Size(min=1, max=45)
+    @Column(name = "password")
     private String password;
 
     public String getId() {

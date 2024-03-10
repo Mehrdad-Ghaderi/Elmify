@@ -19,22 +19,7 @@ public class HomeController {
     private StudentService studentService;
 
     @GetMapping
-    public String shoeHome(Model model) {
-        return "home/home";
-    }
-
-    @GetMapping("/sign-in")
-    public String showLogin(Model model) {
-        return "students/sign-in/index";
-    }
-
-    @PostMapping("/save")
-    public String saveStudent(Student student, Model model) {
-        var studentByID = studentService.getStudentByID(student.getId());
-        if (studentByID.isPresent()) {
-            return "common/failed-submission";
-        }
-        studentService.save(student);
-        return "common/successful-submission";
+    public String showHome(Model model) {
+        return "main/home";
     }
 }

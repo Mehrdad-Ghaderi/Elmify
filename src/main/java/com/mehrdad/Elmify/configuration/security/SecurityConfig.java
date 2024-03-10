@@ -2,32 +2,42 @@ package com.mehrdad.Elmify.configuration.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
-/*@Configuration
-@EnableWebSecurity*/
+@Configuration
+@EnableWebSecurity
 public class SecurityConfig {
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/home").permitAll()
-                        .anyRequest().authenticated()
-                )
-                .formLogin((form) -> form
-                        .loginPage("/login")
-                        .permitAll()
-                );
-                //.logout((logout) -> logout.permitAll());
-
-        return http.build();
+    SecurityFilterChain SecurityFilterChain(HttpSecurity http) throws Exception {
+        http.authorizeHttpRequests((requests) -> {
+            ((AuthorizeHttpRequestsConfigurer.AuthorizedUrl)requests
+                    .anyRequest()).
+                    authenticated();
+        });
+        http.formLogin(Customizer.withDefaults()); // provides default formLogin page
+        http.httpBasic(Customizer.withDefaults()); //provides basic form in case formLogin fails
+        http.csrf(AbstractHttpConfigurer::disable); //permits POST requests
+        return (SecurityFilterChain)http.build();
     }
+
+
+    //it did not ask for password, nor could it persis. 403 forbidden request was prompted
+    /*@Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http.authorizeHttpRequests(authorizeRequests -> authorizeRequests.anyRequest()
+                .permitAll());
+        return http.build();
+    }*/
 
     @Bean
     public UserDetailsService userDetailsService() {
@@ -40,4 +50,6 @@ public class SecurityConfig {
 
         return new InMemoryUserDetailsManager(user);
     }
+
+
 }

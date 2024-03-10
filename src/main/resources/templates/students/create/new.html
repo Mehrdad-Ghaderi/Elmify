@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:replace="~{layouts :: header}">
-    <meta charset="UTF-8">
-
     <title>Student Sign up page</title>
 </head>
 <body>
 
 <nav th:replace="~{layouts :: navbar}"></nav>
 
-<div data-role="page">
+<div class="container">
+    <h1>Sign Up</h1>
     <div data-role="header">
-        <h1>Sign Up</h1>
     </div>
 
     <div data-role="main" class="ui-content">
         <form action="/students/create" method="POST" th:object="${student}">
-            <fieldset data-role="controlgroup">
+            <fieldset data-role="control-group">
                 <legend>Student Information:</legend>
 
                 <label for="id"></label>
@@ -47,10 +45,10 @@
                 <br>
             </fieldset>
 
-
             <button type="submit" class="btn btn-success">Create Account</button>
             <input type="reset" data-inline="true" value="Reset">
-        </form> <p>    </p>
+        </form>
+        <p></p>
         <a th:href="@{/students/login}" type="submit" class="btn btn-info">Already have an account?</a>
 
     </div>

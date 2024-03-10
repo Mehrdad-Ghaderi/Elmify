@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:replace="~{layouts :: header}">
-  <link rel="stylesheet" type="text/css" href="login.css">
-  <title>Student login</title>
+    <!--<link rel="stylesheet" type="text/css" href="login.css">-->
+    <title>Student login</title>
 </head>
 
-<body class="text-center">
+<body>
 <nav th:replace="~{layouts :: navbar}"></nav>
-<div data-role="main" class="ui-content">
 
-<form action="/students/authenticate" method="POST" th:object="${student}">
-  <h1 class="h3 mb-3 font-weight-normal">Please login</h1>
-  <label for="id" class="sr-only">ID:</label>
-  <input type="text" id="id" class="form-control" placeholder="ID" required autofocus th:field="${student.id}">
-  <label for="password" class="sr-only">Password:</label>
-  <input type="password" id="password" class="form-control" placeholder="Password" required th:field="${student.password}">
-  <div class="checkbox mb-3">
-    <label>
-      <input type="checkbox" value="remember-me"> Remember me
-    </label>
-  </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">login in</button>
-  <p class="mt-5 mb-3 text-muted">&copy; 2024</p>
-</form>
+<div class="container" style="width: 400px" >
+    <form action="/students/authenticate" method="POST" th:object="${student}">
+        <h1 class="h3 mb-3 font-weight-normal">Please login</h1>
+        <label for="id" class="sr-only">ID:</label>
+        <input type="text" id="id" class="form-control" placeholder="ID" required autofocus th:field="${student.id}">
+        <label for="password" class="sr-only">Password:</label>
+        <input type="password" id="password" class="form-control" placeholder="Password" required
+               th:field="${student.password}">
+        <div class="text-center">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">login in</button>
+
+    </form>
+    <div class="text-center">
+        <a class="dropdown-item" th:href="@{/students/new}">New around here? Sign up</a>
+    </div>
+    <p class="mt-5 mb-3 text-muted">&copy; 2024</p>
 </div>
 </body>
 </html>

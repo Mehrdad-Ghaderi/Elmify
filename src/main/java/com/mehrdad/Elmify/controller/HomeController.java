@@ -22,4 +22,9 @@ public class HomeController {
     public String showHome(Model model) {
         return "main/home";
     }
+
+    @GetMapping("/login")
+    public String login() {
+        return "main/login";
+    }
 }

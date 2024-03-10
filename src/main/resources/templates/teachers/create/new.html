@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="~{layouts :: header}">
+    <title>Teacher Sign up page</title>
+</head>
+<body>
+
+<nav th:replace="~{layouts :: navbar}"></nav>
+
+<div class="container">
+    <h1>Sign Up</h1>
+    <div data-role="header">
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <form action="/teachers/create" method="POST" th:object="${teacher}">
+            <fieldset data-role="control-group">
+                <legend>Teacher Information:</legend>
+
+                <label for="id"></label>
+                ID: <input type="text" id="id" th:field="${teacher.id}"> <br>
+                <br>
+                <label for="firstName"></label>
+                First name: <input type="text" id="firstName" placeholder="first name" th:field="${teacher.firstName}">
+                <br>
+                <br>
+                <label for="lastName"></label>
+                Last name: <input type="text" id="lastName" placeholder="last name" th:field="${teacher.lastName}"> <br>
+                <br>
+                <label for="email"></label>
+                Email: <input type="text" id="email" placeholder="j***.****n@mail.com" th:field="${teacher.email}"> <br>
+                <br>
+                <label for="phoneNumber"></label>
+                Phone Number: <input type="text" id="phoneNumber" placeholder="09123456789"
+                                     th:field="${teacher.phoneNumber}"> <br>
+                <br>
+                <label for="username"></label>
+                Username: <input type="text" id="username" placeholder="eg. jack-brown" th:field="${teacher.username}">
+                <br>
+                <br>
+                <label for="password"></label>
+                Password: <input type="password" id="password"
+                                 placeholder="combination of capital, and small letters, and symbols"
+                                 th:field="${teacher.password}"> <br>
+                <br>
+            </fieldset>
+
+            <button type="submit" class="btn btn-success">Create Account</button>
+            <input type="reset" data-inline="true" value="Reset">
+        </form>
+        <p></p>
+        <a th:href="@{/teachers/login}" type="submit" class="btn btn-info">Already have an account?</a>
+
+    </div>
+</div>
+
+</body>
+</html>

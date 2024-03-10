@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="~{layouts :: header}">
+    <meta charset="UTF-8">
+    <title>Failed Submission</title>
+</head>
+
+<body>
+<nav th:replace="~{layouts :: navbar}"></nav>
+
+<div class="text-center">
+    <h4>The ID you entered already exists!</h4>
+    <h4>Would you like to try again?</h4>
+    <a th:href="@{/teachers/new}" class="btn btn-primary btn-sm mb-3">Yes</a>
+    <a th:href="@{/teachers/list}" class="btn btn-primary btn-sm mb-3">Back</a>
+</div>
+</body>
+</html>

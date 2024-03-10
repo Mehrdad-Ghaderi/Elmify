@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="~{layouts :: header}">
+    <!--<link rel="stylesheet" type="text/css" href="login.css">-->
+    <title>Login</title>
+</head>
+
+<body>
+<nav th:replace="~{layouts :: navbar}"></nav>
+
+<div class="container" style="width: 400px">
+
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="/templates/main/images/female.jpg" alt="">
+        <div class="card-body">
+            <h5 class="card-title">Students!</h5>
+            <p class="card-text"><strong>Welcome Dear Students!</strong></p>
+            <a th:href="@{/students/login}" class="btn btn-primary">Login</a>
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="/templates/main/images/male.jpg" alt="">
+        <div class="card-body">
+            <h5 class="card-title">Teachers!</h5>
+            <p class="card-text"><strong>Welcome Dear Teachers!</strong></p>
+            <a th:href="@{/teachers/login}" class="btn btn-primary">Login</a>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

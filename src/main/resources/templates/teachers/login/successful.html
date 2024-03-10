@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="~{layouts :: header}">
+    <title>Successful Login</title>
+</head>
+
+<body>
+<nav th:replace="~{layouts :: navbar}"></nav>
+
+<div class="text-center">
+
+    <h4>Welcome to your account!</h4>
+    <a th:href="@{/home}" class="btn btn-primary btn-sm mb-3">Ok</a>
+
+</div>
+</body>
+</html>

@@ -3,9 +3,12 @@ package com.mehrdad.Elmify.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+
+import java.util.List;
 
 @Entity
 public class Teacher {
@@ -38,6 +41,9 @@ public class Teacher {
     @Size(min=1, max=45)
     @Column(name = "password")
     private String password;
+
+    @ManyToMany(mappedBy = "teachers")
+    private List<Student> students;
 
     public String getId() {
         return id;
@@ -93,5 +99,13 @@ public class Teacher {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
     }
 }

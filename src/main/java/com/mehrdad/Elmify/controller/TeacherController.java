@@ -30,7 +30,7 @@ public class TeacherController {
     }
 
     @PostMapping("/create")
-    public String createteacher(Teacher teacher, Model model) {
+    public String createTeacher(Teacher teacher, Model model) {
         var teacherByID = teacherService.getTeacherByID(teacher.getId());
         if (teacherByID.isPresent()) {
             return "teachers/create/failed";

@@ -2,7 +2,6 @@ package com.mehrdad.Elmify.configuration.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -26,7 +25,7 @@ public class SecurityConfig {
         });
         http.formLogin(Customizer.withDefaults()); // provides default formLogin page
         http.httpBasic(Customizer.withDefaults()); //provides basic form in case formLogin fails
-        http.csrf(AbstractHttpConfigurer::disable); //permits POST requests
+        http.csrf(AbstractHttpConfigurer::disable); //permits POST requests if disabled
         return (SecurityFilterChain)http.build();
     }
 

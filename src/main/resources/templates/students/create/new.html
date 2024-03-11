@@ -18,30 +18,30 @@
                 <legend>Student Information:</legend>
 
                 <label for="id"></label>
-                ID: <input type="text" id="id" th:field="${student.id}"> <br>
+                ID: <input type="text" id="id" th:field="${student.id}" required> <br>
                 <br>
                 <label for="firstName"></label>
-                First name: <input type="text" id="firstName" placeholder="first name" th:field="${student.firstName}">
+                First name: <input type="text" id="firstName" placeholder="first name" th:field="${student.firstName}" required>
                 <br>
                 <br>
                 <label for="lastName"></label>
-                Last name: <input type="text" id="lastName" placeholder="last name" th:field="${student.lastName}"> <br>
+                Last name: <input type="text" id="lastName" placeholder="last name" th:field="${student.lastName}" required> <br>
                 <br>
                 <label for="email"></label>
-                Email: <input type="text" id="email" placeholder="j***.****n@mail.com" th:field="${student.email}"> <br>
+                Email: <input type="text" id="email" placeholder="j***.****n@mail.com" th:field="${student.email}" required> <br>
                 <br>
                 <label for="phoneNumber"></label>
                 Phone Number: <input type="text" id="phoneNumber" placeholder="09123456789"
-                                     th:field="${student.phoneNumber}"> <br>
+                                     th:field="${student.phoneNumber}" required> <br>
                 <br>
                 <label for="username"></label>
-                Username: <input type="text" id="username" placeholder="eg. jack-brown" th:field="${student.username}">
+                Username: <input type="text" id="username" placeholder="eg. jack-brown" th:field="${student.username}" required>
                 <br>
                 <br>
                 <label for="password"></label>
                 Password: <input type="password" id="password"
                                  placeholder="combination of capital, and small letters, and symbols"
-                                 th:field="${student.password}"> <br>
+                                 th:field="${student.password}" required> <br>
                 <br>
             </fieldset>
 
